@@ -26,6 +26,7 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class RecipeManager {
@@ -153,24 +154,28 @@ public class RecipeManager {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		for (int i = 0; i < recipes.size(); i++)
 		{
-			if (recipes.get(i) != null)
-			{
-				IRecipe tmpRecipe = recipes.get(i);
-
-				IRecipe recipe = tmpRecipe;
-				if (recipe == null) {
-					continue;
+			try {
+				if (recipes.get(i) != null)
+				{
+					IRecipe tmpRecipe = recipes.get(i);
+	
+					IRecipe recipe = tmpRecipe;
+					if (recipe == null) {
+						continue;
+					}
+					
+					ItemStack recipeResult = recipe.getRecipeOutput();
+					
+					if (recipeResult == null) {
+						continue;
+					}
+					
+					if (shouldRemoveItem(recipe)) {
+						recipes.remove(i--);
+					}
 				}
-				
-				ItemStack recipeResult = recipe.getRecipeOutput();
-				
-				if (recipeResult == null) {
-					continue;
-				}
-				
-				if (shouldRemoveItem(recipe)) {
-					recipes.remove(i--);
-				}
+			} catch (Exception e) {
+				FMLLog.warning("[TFCRailcraft] - encountered exception while removing recipes. Continuing");
 			}
 		}
 	}
