@@ -1,15 +1,15 @@
+
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "tfcrailcraft",
+  "name": "TFC Railcraft Compatibility",
+  "description": "Fixes recipes and makes Railcraft usable with TFC",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "authorList": ["vidaj", "kev12east"],
+  "parent": "",
   "screenshots": [],
   "dependencies": []
 }
