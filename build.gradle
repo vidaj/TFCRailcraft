@@ -17,20 +17,13 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.1.1"
-group= "com.vidaj.tfcrailcraft" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "tfcrailcraft"
+version = "1.0"
+group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "modid"
 
 minecraft {
-    version = "10.13.3.1408-1.7.10"
+    version = "1.7.10-10.13.4.1448-1.7.10"
     runDir = "eclipse"
-}
-
-jar {
-    manifest.attributes(
-            'FMLCorePlugin': 'com.vidaj.tfcrailcraft.asm.TransformerManager',
-            'FMLCorePluginContainsFMLMod': 'true',
-    )
 }
 
 dependencies {
