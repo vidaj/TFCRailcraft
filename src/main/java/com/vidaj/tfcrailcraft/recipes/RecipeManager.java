@@ -123,13 +123,13 @@ public class RecipeManager {
 		GameRegistry.addRecipe(new ShapedOreRecipe(EnumMachineAlpha.COKE_OVEN
 				.getItem(1), new Object[] { "sbs", "bsb", "sbs",
 				Character.valueOf('s'), "blockSand", Character.valueOf('b'),
-				new ItemStack(TFCItems.FireBrick, 1, 1) }));
+				new ItemStack(TFCItems.fireBrick, 1, 1) }));
 
 		if (RailcraftToolItems.getCoalCoke() != null) {
 			for (int i = 0; i < Global.WOOD_ALL.length; i++) {
 				RailcraftCraftingManager.cokeOven.addRecipe(new ItemStack(
-						TFCItems.Logs, 1, i), true, false, new ItemStack(
-						TFCItems.Coal, 1, 1), Fluids.CREOSOTE
+						TFCItems.logs, 1, i), true, false, new ItemStack(
+						TFCItems.coal, 1, 1), Fluids.CREOSOTE
 						.get(COKE_COOK_CREOSOTE), COKE_COOK_TIME);
 			}
 		}
@@ -142,7 +142,7 @@ public class RecipeManager {
 
 		for (int i = 0; i < Global.WOOD_ALL.length; i++) {
 			BarrelManager.getInstance().addRecipe(
-					new BarrelRecipe(new ItemStack(TFCItems.SinglePlank, 1, i),
+					new BarrelRecipe(new ItemStack(TFCItems.singlePlank, 1, i),
 							creosote,
 							woodenTie, creosote)
 							.setMinTechLevel(0));
@@ -197,10 +197,10 @@ public class RecipeManager {
 	}
 	
 	private void removeRecipe(Item item) {
-		Recipes.RemoveRecipe(new ItemStack(item));
+		Recipes.removeRecipe(new ItemStack(item));
 	}
 	
 	private void removeRecipe(ItemStack itemStack) {
-		Recipes.RemoveRecipe(itemStack);
+		Recipes.removeRecipe(itemStack);
 	}
 }

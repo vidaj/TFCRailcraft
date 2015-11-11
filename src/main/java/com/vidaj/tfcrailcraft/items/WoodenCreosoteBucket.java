@@ -27,7 +27,7 @@ import mods.railcraft.common.fluids.ItemBucketRailcraft;
 
 public class WoodenCreosoteBucket extends ItemBucketRailcraft implements ISize{
 
-	private final ItemStack container = new ItemStack(TFCItems.WoodenBucketEmpty);
+	private final ItemStack container = new ItemStack(TFCItems.woodenBucketEmpty);
 	
 	public WoodenCreosoteBucket() {
 		super(Fluids.CREOSOTE.get());

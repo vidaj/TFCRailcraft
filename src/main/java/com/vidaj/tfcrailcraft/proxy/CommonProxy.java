@@ -31,8 +31,8 @@ public class CommonProxy {
 	}
 
 	public void registerOreDict() {
-		OreDictionary.registerOre("plateIron", new ItemStack(TFCItems.WroughtIronSheet));
-		OreDictionary.registerOre("ingotDoubleIron", new ItemStack(TFCItems.WroughtIronIngot2x));
+		OreDictionary.registerOre("plateIron", new ItemStack(TFCItems.wroughtIronSheet));
+		OreDictionary.registerOre("ingotDoubleIron", new ItemStack(TFCItems.wroughtIronIngot2x));
 		
 		OreDictionary.registerOre("plateSteel", (ItemStack) RailcraftItem.plate.getRecipeObject(EnumPlate.STEEL));
 		OreDictionary.registerOre("plateIron", (ItemStack) RailcraftItem.plate.getRecipeObject(EnumPlate.IRON));

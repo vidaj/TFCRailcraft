@@ -23,7 +23,7 @@ public class ModItems {
 	
 	private static void registerItems() {
 		GameRegistry.registerItem(WoodenCreosoteBucket, "woodenCreosoteBucket");
-		FluidContainerRegistry.FluidContainerData container = new FluidContainerRegistry.FluidContainerData(Fluids.CREOSOTE.get(1000), new ItemStack(WoodenCreosoteBucket), new ItemStack(TFCItems.WoodenBucketEmpty));
+		FluidContainerRegistry.FluidContainerData container = new FluidContainerRegistry.FluidContainerData(Fluids.CREOSOTE.get(1000), new ItemStack(WoodenCreosoteBucket), new ItemStack(TFCItems.woodenBucketEmpty));
 		FluidContainerRegistry.registerFluidContainer(container);
 	}
 }
