@@ -12,6 +12,8 @@ public class ModItems {
 
 	public static Item WoodenCreosoteBucket;
 	
+	public static Item WoodenMinecartChest;
+	
 	public static void setup() {
 		createItems();
 		registerItems();
@@ -19,11 +21,14 @@ public class ModItems {
 
 	private static void createItems() {
 		WoodenCreosoteBucket = new WoodenCreosoteBucket().setUnlocalizedName("woodenCreosoteBucket");
+		WoodenMinecartChest = new ItemWoodenMinecartChest(1).setUnlocalizedName("woodenminecart_chest").setTextureName("woodenminecart_chest");
 	}
 	
 	private static void registerItems() {
 		GameRegistry.registerItem(WoodenCreosoteBucket, "woodenCreosoteBucket");
 		FluidContainerRegistry.FluidContainerData container = new FluidContainerRegistry.FluidContainerData(Fluids.CREOSOTE.get(1000), new ItemStack(WoodenCreosoteBucket), new ItemStack(TFCItems.woodenBucketEmpty));
 		FluidContainerRegistry.registerFluidContainer(container);
+		
+		GameRegistry.registerItem(WoodenMinecartChest, "woodenMinecartChest");
 	}
 }

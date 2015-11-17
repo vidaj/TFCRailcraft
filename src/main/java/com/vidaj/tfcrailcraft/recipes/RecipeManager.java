@@ -8,18 +8,23 @@ import com.bioxx.tfc.api.TFCItems;
 import com.bioxx.tfc.api.Constant.Global;
 import com.bioxx.tfc.api.Crafting.BarrelManager;
 import com.bioxx.tfc.api.Crafting.BarrelRecipe;
+import com.vidaj.tfcrailcraft.items.ModItems;
 
 import mods.railcraft.api.crafting.RailcraftCraftingManager;
 import mods.railcraft.common.blocks.RailcraftBlocks;
 import mods.railcraft.common.blocks.aesthetics.cube.EnumCube;
 import mods.railcraft.common.blocks.machine.alpha.EnumMachineAlpha;
 import mods.railcraft.common.blocks.machine.beta.EnumMachineBeta;
+import mods.railcraft.common.blocks.tracks.EnumTrack;
 import mods.railcraft.common.fluids.Fluids;
+import mods.railcraft.common.items.ItemRail.EnumRail;
+import mods.railcraft.common.items.ItemRailbed.EnumRailbed;
 import mods.railcraft.common.items.ItemRailcraft;
 import mods.railcraft.common.items.RailcraftItem;
 import mods.railcraft.common.items.RailcraftToolItems;
 import mods.railcraft.common.plugins.forge.OreDictPlugin;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -44,8 +49,35 @@ public class RecipeManager {
 		registerWoodenTieBarrelRecipes();
 		registerSteelTankRecipes();
 		registerIronTankRecipes();
+		
+		registerWoodenMinecartRecipe();
+		registerWoodenBoosterTrackRecipe();
 	}
 	
+	private void registerWoodenBoosterTrackRecipe() {
+		GameRegistry.addRecipe(new ShapedOreRecipe(EnumTrack.SLOW_BOOSTER.getItem(16),
+				new Object[]{
+				"R R",
+				"GBG",
+				"RPR",
+				'R', RailcraftItem.rail.getRecipeObject(EnumRail.WOOD),
+				'B', RailcraftItem.railbed.getRecipeObject(EnumRailbed.WOOD),
+				'G', "ingotGold",
+				'P', Items.redstone
+		}));
+	}
+
+	private void registerWoodenMinecartRecipe() {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModItems.WoodenMinecartChest, 1),
+				new Object[] {
+						"   ",
+						"WCW",
+						"WWW",
+						'W', "woodLumber",
+						'C', "chest"
+				}));
+	}
+
 	private void setupItemsToRemove() {
 		itemsToRemove.add(EnumMachineBeta.TANK_STEEL_WALL.getItem(8));
 		itemsToRemove.add(EnumMachineBeta.TANK_STEEL_GAUGE.getItem(8));

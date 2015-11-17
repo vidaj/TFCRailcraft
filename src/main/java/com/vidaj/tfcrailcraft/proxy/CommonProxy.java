@@ -5,6 +5,7 @@ import mods.railcraft.common.items.RailcraftItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import com.bioxx.tfc.api.TFCBlocks;
 import com.bioxx.tfc.api.TFCItems;
 import com.vidaj.tfcrailcraft.recipes.RecipeManager;
 
@@ -20,6 +21,10 @@ public class CommonProxy {
 	
 	public void registerBlocks() {
 		
+	}
+	
+	public void registerEntities() {
+		com.vidaj.tfcrailcraft.entities.ModEntities.setup();
 	}
 	
 	public void registerItems() {
@@ -39,5 +44,13 @@ public class CommonProxy {
 		OreDictionary.registerOre("plateWroughtIron", (ItemStack) RailcraftItem.plate.getRecipeObject(EnumPlate.IRON));
 		OreDictionary.registerOre("plateCopper", (ItemStack) RailcraftItem.plate.getRecipeObject(EnumPlate.COPPER));
 		OreDictionary.registerOre("plateTin", (ItemStack) RailcraftItem.plate.getRecipeObject(EnumPlate.TIN));
+		
+		for (int meta = 0; meta < 16; meta++) {
+			OreDictionary.registerOre("chest", new ItemStack(TFCBlocks.chest, 1, meta));
+		}
+	}
+	
+	public void registerRenderers() {
+		
 	}
 }
